@@ -46,7 +46,23 @@ class GenericClass<T> {
 	
 	
 }
-
+class GenericsWithTwoGenerics<T,R>
+{
+	private T firstVar;
+	private R secondVar;
+	public GenericsWithTwoGenerics(T firstVar, R secondVar) {
+		
+		this.firstVar = firstVar;
+		this.secondVar = secondVar;
+	}
+	@Override
+	public String toString() {
+		return "GenericsWithTwoGenerics [firstVar=" + firstVar + ", secondVar=" + secondVar + "]";
+	}
+	
+	
+	
+}
 
 public class MainClass {
 
@@ -80,6 +96,27 @@ public class MainClass {
 		elems2.add(new GenericClass<Integer>(44));
 		System.out.println(elems2);
 		
+		display("hi","bye");
+		display(2,3);
+		
+		System.out.println("-------------------");
+		
+		GenericsWithTwoGenerics<String,String> firstVariable= new GenericsWithTwoGenerics<String,String>("hey","uo");
+		GenericsWithTwoGenerics<Integer,Integer> secondVariable= new GenericsWithTwoGenerics<Integer,Integer>(3,5);
+		GenericsWithTwoGenerics<Double,Character> thirdVariable= new GenericsWithTwoGenerics<Double,Character>(3.66,'Y');
+		
+		System.out.println(firstVariable);
+		System.out.println(secondVariable);
+		System.out.println(thirdVariable);
+		
+	}
+	
+	
+	public static <Roman, Reigns> void display (Roman element, Reigns number)
+	{
+		System.out.println("here here");
+		System.out.println(element);
+		System.out.println(number);
 	}
 
 }
